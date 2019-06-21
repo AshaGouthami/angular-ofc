@@ -1,0 +1,61 @@
+<div class="A">
+<form [formGroup]="matForm">
+  <mat-form-field>
+    <input matInput placeholder="Username" formControlName="matForm">
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+      <input matInput type="password" placeholder="password"  formControlName="matForm" maxlength="10">
+  </mat-form-field>
+  <br>
+  <mat-label>Value: </mat-label>
+    <mat-radio-group  matInput placeholder="Value" formControlName="matForm">
+      <mat-radio-button value="D" #dynamic>Dynamic</mat-radio-button>
+      <mat-radio-button value="S" #static>Static</mat-radio-button>
+    </mat-radio-group>
+    <br>
+    <form [formGroup]="dynamicForm">
+    <div *ngIf="dynamic.checked">
+      <mat-form-field>
+        <input matInput placeholder="name" formControlName="dynamicForm" required>
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+          <input matInput placeholder="id" formControlName="dynamicForm">
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+          <input matInput placeholder="mobilenumber" formControlName="dynamicForm">
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <input matInput placeholder="bloodgroup" formControlName="dynamicForm">
+      </mat-form-field>
+    </div>
+  </form>
+  <form [formGroup]="staticForm">
+      <div *ngIf="static.checked">
+        <mat-form-field>
+          <input matInput placeholder="mobile number" formControlName="staticForm">
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <input matInput placeholder="pancard number" formControlName="staticForm">
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <input matInput placeholder="adharcard number" formControlName="staticForm">
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+          <input matInput placeholder="bankaccount number" formControlName="staticForm">
+        </mat-form-field>
+        </div>
+    </form>
+</form>
+<button mat-raised-button  [disabled]="matForm.invalid ">Save</button>
+<!-- <button mat-raised-button (click)="matForm = '2'" [disabled]="matForm !== '2'" class="primair">Submit</button> -->
+
+           
+</div>
+ 

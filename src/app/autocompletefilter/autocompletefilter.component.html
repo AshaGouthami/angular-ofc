@@ -1,0 +1,9 @@
+<form [formGroup]="matForm">
+  <mat-form-field>
+    <input matInput placeholder="select" [matAutocomplete]="auto" formControlName="matForm">
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let list of filtereddataList | async" [value]="list">{{list}}</mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</form>
+

@@ -1,0 +1,13 @@
+<ol>
+    <li>
+      <mat-form-field>
+        <input matInput [(ngModel)]="course" placeholder="select course?">
+      </mat-form-field>
+    </li>
+    <li>
+      <button mat-raised-button (click)="openDialog()">Pick one</button>
+    </li>
+    <li *ngIf="language">
+      You chose: <i>{{language}}</i>
+    </li>
+  </ol>

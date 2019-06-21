@@ -1,0 +1,8 @@
+<form [formGroup]="carForm">
+  <mat-form-field>
+    <input matInput placeholder="selectcar" [matAutocomplete]="auto" formControlName="carForm">
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let car of filteredCars">{{car}}</mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</form>

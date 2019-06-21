@@ -1,0 +1,25 @@
+<form [formGroup]="matForm">
+  <mat-form-field>
+      <mat-select placeholder="select designation" formControlName="designation">
+      <mat-option *ngFor="let work  of workList" [value]="work.value">{{work.viewValue}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+<br>
+<mat-form-field>
+  <mat-select placeholder="select course" formControlName="course">
+    <mat-option *ngFor="let course of courseList" [value]="course.value">{{course.viewValue}}</mat-option>
+  </mat-select>
+</mat-form-field>
+</form>
+{{matForm.value | json}}
+
+<form [formGroup]="selectForm">
+<div>
+    <mat-form-field>
+        <mat-select placeholder="select company" formControlName="company" multiple>
+          <mat-option *ngFor="let company of companies">{{company}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+</div>
+</form>
+

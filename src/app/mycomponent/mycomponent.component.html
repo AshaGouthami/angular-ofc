@@ -1,0 +1,52 @@
+<!-- <div class="abc">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Username</th>
+        <th>Id</th>
+        <th>Email</th>
+        <th>City</th>
+        <th>Company</th> 
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let data of dataList">
+          <td>{{data.username}}</td>
+          <td>{{data.id}}</td>
+          <td>{{data.email}}</td>
+          <td>{{data.city}}</td>
+          <td>{{data.company}}</td> 
+      </tr>
+    </tbody>
+  </table>
+</div>
+ -->
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+<ng-container matColumnDef="id">
+  <th mat-header-cell *matHeaderCellDef> Id </th>
+  <td mat-cell *matCellDef="let data"> {{data.id}} </td>
+</ng-container>
+
+ <ng-container matColumnDef="username">
+  <th mat-header-cell *matHeaderCellDef> Username </th>
+  <td mat-cell *matCellDef="let data"> {{data.username}} </td>
+</ng-container>
+
+<ng-container matColumnDef="email">
+  <th mat-header-cell *matHeaderCellDef> Email </th>
+  <td mat-cell *matCellDef="let data"> {{data.email}} </td>
+</ng-container>
+
+<ng-container matColumnDef="city">
+  <th mat-header-cell *matHeaderCellDef> City </th>
+  <td mat-cell *matCellDef="let data"> {{data.city}} </td>
+</ng-container>
+
+<ng-container matColumnDef="company">
+  <th mat-header-cell *matHeaderCellDef> Company </th>
+  <td mat-cell *matCellDef="let data"> {{data.company}} </td>
+</ng-container>
+
+<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+<tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

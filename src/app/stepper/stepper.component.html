@@ -1,0 +1,84 @@
+<!-- <button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
+    {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
+  </button> -->
+<mat-horizontal-stepper [linear]="isLinear" #stepper>
+  <mat-step [stepControl]="firstformGroup">
+    <form [formGroup]="firstformGroup">
+      <ng-template matStepLabel>Graduation Details</ng-template>
+      <mat-form-field>
+        <input matInput placeholder="Name" formControlName="firstName">
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <input matInput placeholder="Rollnumber" formControlName="rollNumber">
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <input matInput placeholder="College name" formControlName="collegeName">
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <input matInput placeholder="Department" formControlName="department">
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+          <mat-select matInput placeholder="percentage" formCntrolName="percentage">
+            <mat-option value="90-80">90-80</mat-option>
+            <mat-option value="80-70">80-70</mat-option>
+            <mat-option value="70-60">70-60</mat-option>
+            <mat-option value="60-50">60-50</mat-option>
+          </mat-select>
+      </mat-form-field>
+      <div>
+          <button mat-button matStepperNext >Next</button>
+      </div>
+      </form>
+    </mat-step> 
+     <mat-step [stepControl]="secondformGroup">
+      <form [formGroup]="secondformGroup">
+      <ng-template matStepLabel>Personal Details</ng-template>
+      <mat-form-field>
+        <input matInput placeholder="FirstName" formControlName="firstName">
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <input matInput placeholder="LastName" formControlName="lastName">
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <input matInput placeholder="Email" formControlName="email">
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <input matInput placeholder="Mobile number" formControlName="mobileNumber">
+      </mat-form-field>
+      <br>
+      <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+    </form>  
+   </mat-step> 
+   <mat-step [stepControl]="thirdformGroup">
+   <form [formGroup]="thirdformGroup">
+   <ng-template matStepLabel>Address Details</ng-template>
+    <mat-form-field>
+      <input matInput placeholder="Current Address" formControlName="currentAddress">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <input matInput placeholder="Permanent Address" formControlName="permanentAddress">
+  </mat-form-field>
+  <br>
+  <button mat-button matStepperPrevious>Back</button>
+  <button mat-button matStepperNext>Next</button>
+  </form>
+   </mat-step>
+   <mat-step>
+      <ng-template matStepLabel>Done</ng-template>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click)="stepper.reset()">Reset</button>
+      </div>
+    </mat-step>
+</mat-horizontal-stepper>

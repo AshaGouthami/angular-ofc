@@ -1,0 +1,66 @@
+<div>
+<h2>EMPLOYEE REGISTRATION</h2>
+ <form [formGroup]="contactForm" >
+  <mat-form-field>
+  <input matInput placeholder="Firstname" formControlName="firstName" minlength="5" maxlength="10" (keypress)=keyPress1($event)> 
+  <mat-error *ngIf="contactForm.controls?.firstName.errors?.required">Enter a Firstname</mat-error>
+  <mat-error *ngIf="contactForm.controls?.firstName.errors?.minlength">Enter atleast 5 characters</mat-error>
+  </mat-form-field>
+  <br>
+
+  <mat-form-field>
+  <input matInput placeholder="Lastname" formControlName="lastName" minlength="5" maxlength="10" (keypress)=keyPress2($event)>
+  <mat-error *ngIf="contactForm.controls?.lastName.errors?.required">Enter a Lastname</mat-error>
+  <mat-error *ngIf="contactForm.controls?.lastName.errors?.minlength">Enter atleast 5 characters</mat-error> 
+  </mat-form-field>
+  <br>
+
+  <mat-form-field>
+  <input matInput placeholder="Email" formControlName="emailId">
+   <mat-error *ngIf="contactForm.controls?.emailId.errors?.required">Please enter a email</mat-error>
+</mat-form-field>
+  <br>
+  <!-- <mat-form-field>
+    <input matInput type ="password" placeholder="password" formControlName="password" minlength="8">
+    <mat-error *ngIf="contactForm.controls?.password.errors?.required">Please enter a password</mat-error>
+        <input id="mysecretpassword" type="password" placeholder="Password" matInput showHideInput>
+        <i matSuffix class="material-icons" showHideTrigger="mysecretpassword"
+          [showHideStatus]="{ materialIcon: true, id: 'mysecretpassword' }"></i>
+  </mat-form-field>
+  <br>  -->
+ 
+   <show-hide-password size="md" btnStyle="primary" [btnOutline]="false">
+    <mat-form-field>
+  <input matInput type="password" placeholder="password" maxlength="12">
+  </mat-form-field>
+  </show-hide-password> 
+  <br>
+  
+<mat-form-field>
+  <input matInput placeholder="MobileNumber" formControlName="mobileNumber" maxlength="10" (keypress)=keyPress($event)>
+  <mat-error *ngIf="contactForm.controls?.mobileNumber.errors?.required">Please enter a email</mat-error>
+  </mat-form-field>
+  <br>
+
+<mat-form-field>
+  <mat-select placeholder="Designation" formControlName="Designation">
+    <!-- <mat-option *ngFor="let a of data">{{a}}</mat-option> -->
+    <mat-option value="QA">QA</mat-option>
+    <mat-option value="Testing">Testing</mat-option>
+    <mat-option value="Accounting">Accounting</mat-option>
+    <mat-option value="Developer">Developer </mat-option>
+    <mat-option value="Trainee">Trainee </mat-option> 
+    </mat-select>
+</mat-form-field>
+<br>
+<mat-form-field>
+   <mat-select placeholder="Academic percentage" formControlName="percentage">
+    <mat-option value="90-80">90-80</mat-option>
+    <mat-option value="80-70">80-70</mat-option>
+    <mat-option value="70-60">70-60</mat-option>
+    <mat-option value="60-50">60-50</mat-option>
+  </mat-select>
+  </mat-form-field>
+  <br>
+
+  <button mat-raised-button [disabled]="contactForm.invalid">submit</button> 
